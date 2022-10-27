@@ -12,6 +12,10 @@ public class PlayerController : MonoBehaviour       //this script I am not going
     protected Transform cam;
     [SerializeField]
     protected CharacterController controller;
+
+
+    private float Tiltreal = 0;
+
     
     // Start is called before the first frame update
     protected void Start()
@@ -31,12 +35,19 @@ public class PlayerController : MonoBehaviour       //this script I am not going
         float turn = mouseX * Time.deltaTime * mouseSpeed;
         float tilt = mouseY * Time.deltaTime * mouseSpeed * -1;
 
-        tilt = Mathf.Clamp(tilt, -80, 80);
-
         float y = -9.8f * Time.deltaTime;
 
         float x = side * moveSpeed * Time.deltaTime;
         float z = forward * moveSpeed * Time.deltaTime;
+
+        if (Time.time < 5f)
+        {
+            return;
+        }
+
+        Tiltreal += tilt;
+
+        Tiltreal = Mathf.Clamp(Tiltreal, -80, 80);
 
         cam.localEulerAngles += new Vector3(tilt, 0, 0);
 
