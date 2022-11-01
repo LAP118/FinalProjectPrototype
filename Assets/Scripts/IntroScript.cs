@@ -24,7 +24,7 @@ public class IntroScript : MonoBehaviour
     {
        if (Time.time > 5f)
        {
-            IntroMessageField.hide = true;
+            //IntroMessageField.hide = true;
        } 
     }
 
