@@ -19,12 +19,16 @@ public class IntroScript : MonoBehaviour
         
     }
     
+    void Update()
+    {
+        Ballmunch();
+    }
 
     protected void Ballmunch()
     {
        if (Time.time > 5f)
        {
-            //IntroMessageField.hide = true;
+            IntroMessageField.gameObject.SetActive(false);
        } 
     }
 
