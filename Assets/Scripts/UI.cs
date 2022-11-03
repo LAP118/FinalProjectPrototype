@@ -51,16 +51,11 @@ public class UI : MonoBehaviour
 
     private void GetChestMessage()
     {
-        /*if (chest.OnTriggerEnter())
-        {
-            ChestGetField.gameObject.SetActive(true);
-            ChestGetField.text = "You got a chest!";
-        }
-        else
-        {
-            ChestGetField.gameObject.SetActive(false);
-        }*/
-
+        
+       
+            //ChestGetField.gameObject.SetActive(true);
+            //ChestGetField.text = "You got a chest!";
+      
 
 
     }

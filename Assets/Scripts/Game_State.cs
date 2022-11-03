@@ -53,10 +53,7 @@ public class Game_State : MonoBehaviour
     protected void state_playing()              //this is the function to tell the game to be in the playing state
     {
         Debug.Log("Playing");
-        if (endgame.OnTriggerEnter(entered.transform))
-        {
-            state = PlayState.GameOver;
-        }
+       
 
         Shift.PastPress();
         Shift.PresentPress();

@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class EndGame : MonoBehaviour
 {
+
+    [SerializeField]
+    protected Game_State Gstate;
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +31,7 @@ public class EndGame : MonoBehaviour
 
     public void OnTriggerEnter (Collider entered)
     {
-
+        Gstate.state = PlayState.GameOver;
     }
 
 
