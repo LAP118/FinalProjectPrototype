@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Timeshift : MonoBehaviour
 {
+
+    [SerializeField]
+    protected Game_State Gstate;
+
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,24 +25,24 @@ public class Timeshift : MonoBehaviour
     }
 
 
-    protected void PastPress()
+    public void PastPress()
     {
         
     }
 
-    protected void PresentPress()
+    public void PresentPress()
     {
 
     }
 
-    protected void FuturePress()
+    public void FuturePress()
     {
-
+       
     }
 
+    
 
-
-
+    
 
 
 

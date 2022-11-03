@@ -26,6 +26,8 @@ public class Game_State : MonoBehaviour
     protected PlayerController player;
     [SerializeField]
     protected EndGame endgame;
+    [SerializeField]
+    protected Timeshift Shift;
 
 
     private void Update()                     //This section is basically making three choices of states for the game to be in
@@ -51,18 +53,20 @@ public class Game_State : MonoBehaviour
     protected void state_playing()              //this is the function to tell the game to be in the playing state
     {
         Debug.Log("Playing");
-       /* if (endgame.OnTriggerEnter(true))
+        if (endgame.OnTriggerEnter(entered.transform))
         {
             state = PlayState.GameOver;
-        }*/
+        }
 
-
+        Shift.PastPress();
+        Shift.PresentPress();
+        Shift.FuturePress();
     }
 
     protected void state_paused()              //this is the function to tell the game to be in the paused state
     {
         Debug.Log("Paused");
-        //player.FreezePlayer(true);
+        
     }
 
     protected void state_gameOver()              //this is the function to tell the game to be in the Game over state
