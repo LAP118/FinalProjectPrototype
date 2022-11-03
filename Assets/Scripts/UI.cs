@@ -70,6 +70,7 @@ public class UI : MonoBehaviour
         if (Gstate.state == PlayState.GameOver)
         {
             GameOverMessageField.gameObject.SetActive(true);
+            GameOverScore();
         }
         if (Gstate.state == PlayState.Paused)
         {
@@ -96,6 +97,9 @@ public class UI : MonoBehaviour
         }
     }
 
-
+    protected void GameOverScore()
+    {
+        GameOverMessageField.text = "Game Over! You got " + score + " chests.";
+    }
 
 }
