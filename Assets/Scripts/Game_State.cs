@@ -51,10 +51,10 @@ public class Game_State : MonoBehaviour
     protected void state_playing()              //this is the function to tell the game to be in the playing state
     {
         Debug.Log("Playing");
-        if (endgame.OnTriggerEnter(true))
+       /* if (endgame.OnTriggerEnter(true))
         {
             state = PlayState.GameOver;
-        }
+        }*/
 
 
     }
@@ -62,7 +62,7 @@ public class Game_State : MonoBehaviour
     protected void state_paused()              //this is the function to tell the game to be in the paused state
     {
         Debug.Log("Paused");
-        player.FreezePlayer(true);
+        //player.FreezePlayer(true);
     }
 
     protected void state_gameOver()              //this is the function to tell the game to be in the Game over state

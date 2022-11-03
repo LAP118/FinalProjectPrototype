@@ -51,7 +51,7 @@ public class UI : MonoBehaviour
 
     private void GetChestMessage()
     {
-        if (chest.OnTriggerEnter(true))
+        /*if (chest.OnTriggerEnter())
         {
             ChestGetField.gameObject.SetActive(true);
             ChestGetField.text = "You got a chest!";
@@ -59,10 +59,10 @@ public class UI : MonoBehaviour
         else
         {
             ChestGetField.gameObject.SetActive(false);
-        }
-        
-        
-        
+        }*/
+
+
+
     }
 
     public void Updatetext()                                           //sets the game over text to show if it's in the game over state or hide if it isn't
