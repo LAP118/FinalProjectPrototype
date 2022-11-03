@@ -55,9 +55,9 @@ public class Game_State : MonoBehaviour
         Debug.Log("Playing");
        
 
-        Shift.PastPress();
-        Shift.PresentPress();
-        Shift.FuturePress();
+        //Shift.PastPress();
+        //Shift.PresentPress();
+        //Shift.FuturePress();
     }
 
     protected void state_paused()              //this is the function to tell the game to be in the paused state

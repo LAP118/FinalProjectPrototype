@@ -94,7 +94,7 @@ public class UI : MonoBehaviour
 
     protected void GameOverScore()
     {
-        GameOverMessageField.text = "Game Over! You got " + score + " chests.";
+        GameOverMessageField.text = "Game Over! You got " + score + " chest(s).";
     }
 
 }
