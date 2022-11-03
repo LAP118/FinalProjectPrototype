@@ -9,7 +9,17 @@ public class UI : MonoBehaviour
     [SerializeField]
     protected Chest chest;
     [SerializeField]
+    protected Game_State Gstate;
+    [SerializeField]
     protected TextMeshProUGUI ScoreMessageField;
+    [SerializeField]
+    protected TextMeshProUGUI ChestGetField;
+    [SerializeField]
+    protected TextMeshProUGUI GameOverMessageField;
+    [SerializeField]
+    protected TextMeshProUGUI StateMessageField;
+    [SerializeField]
+    protected Toggle checkbox;
 
     private int _score = 0;
 
@@ -39,9 +49,52 @@ public class UI : MonoBehaviour
         }
     }
 
-    
+    private void GetChestMessage()
+    {
+        if (chest.OnTriggerEnter(true))
+        {
+            ChestGetField.gameObject.SetActive(true);
+            ChestGetField.text = "You got a chest!";
+        }
+        else
+        {
+            ChestGetField.gameObject.SetActive(false);
+        }
+        
+        
+        
+    }
+
+    public void Updatetext()                                           //sets the game over text to show if it's in the game over state or hide if it isn't
+    {
+        if (Gstate.state == PlayState.GameOver)
+        {
+            GameOverMessageField.gameObject.SetActive(true);
+        }
+        if (Gstate.state == PlayState.Paused)
+        {
+            GameOverMessageField.gameObject.SetActive(false);
+        }
+        if (Gstate.state == PlayState.Playing)
+        {
+            GameOverMessageField.gameObject.SetActive(false);
+        }
+    }
 
 
+    public void PauseClick()                                    //changes the state to paused and back to playing if the check box is toggled
+    {
+        if (checkbox.isOn)
+        {
+            StateMessageField.text = "It's Playing";
+            Gstate.state = PlayState.Playing;
+        }
+        else
+        {
+            StateMessageField.text = "It's Paused";
+            Gstate.state = PlayState.Paused;
+        }
+    }
 
 
 

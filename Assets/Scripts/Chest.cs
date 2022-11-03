@@ -22,10 +22,9 @@ public class Chest : MonoBehaviour
         
     }
 
-    protected void OnTriggerEnter(Collider entered)
+    public void OnTriggerEnter(Collider entered)
     {
-
-
+       
 
 
 
