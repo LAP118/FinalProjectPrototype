@@ -13,7 +13,7 @@ public class UI : MonoBehaviour
     [SerializeField]
     protected TextMeshProUGUI ScoreMessageField;
     [SerializeField]
-    protected TextMeshProUGUI ChestGetField;
+    public TextMeshProUGUI ChestGetField;
     [SerializeField]
     protected TextMeshProUGUI GameOverMessageField;
     [SerializeField]
