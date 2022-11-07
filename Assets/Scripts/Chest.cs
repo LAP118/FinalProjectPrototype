@@ -24,15 +24,20 @@ public class Chest : MonoBehaviour
 
     public void OnTriggerEnter(Collider entered)
     {
+        GetChestMessage();
+        ui.score = ui.score + 1;
+    }
+
+    private void GetChestMessage()
+    {
         ui.ChestGetField.gameObject.SetActive(true);
         ui.ChestGetField.text = "You got a chest!";
 
 
 
-        ui.score = ui.score + 1;
+
+
     }
-
-
 
 
 

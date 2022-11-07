@@ -52,16 +52,7 @@ public class UI : MonoBehaviour
         }
     }
 
-    private void GetChestMessage()
-    {
-        
-       
-            //ChestGetField.gameObject.SetActive(true);
-            //ChestGetField.text = "You got a chest!";
-      
-
-
-    }
+   
 
     public void Updatetext()                                           //sets the game over text to show if it's in the game over state or hide if it isn't
     {
