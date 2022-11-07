@@ -80,16 +80,24 @@ public class UI : MonoBehaviour
 
     public void PauseClick()                                    //changes the state to paused and back to playing if the check box is toggled
     {
-        if (checkbox.isOn)
+        if (Gstate.state == PlayState.GameOver)
         {
-            StateMessageField.text = "It's Playing";
-            Gstate.state = PlayState.Playing;
+
         }
         else
         {
-            StateMessageField.text = "It's Paused";
-            Gstate.state = PlayState.Paused;
+            if (checkbox.isOn)
+            {
+               StateMessageField.text = "It's Playing";
+               Gstate.state = PlayState.Playing;
+            }
+            else
+            {
+               StateMessageField.text = "It's Paused";
+               Gstate.state = PlayState.Paused;
+            }
         }
+        
     }
 
     protected void GameOverScore()
