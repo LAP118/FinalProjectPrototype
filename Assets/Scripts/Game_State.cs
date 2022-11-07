@@ -26,8 +26,7 @@ public class Game_State : MonoBehaviour
     protected PlayerController player;
     [SerializeField]
     protected EndGame endgame;
-    [SerializeField]
-    protected Timeshift Shift;
+    
 
 
     private void Update()                     //This section is basically making three choices of states for the game to be in
@@ -55,9 +54,7 @@ public class Game_State : MonoBehaviour
         Debug.Log("Playing");
        
 
-        //Shift.PastPress();
-        //Shift.PresentPress();
-        //Shift.FuturePress();
+       
     }
 
     protected void state_paused()              //this is the function to tell the game to be in the paused state

@@ -19,7 +19,10 @@ public class UI : MonoBehaviour
     [SerializeField]
     protected TextMeshProUGUI StateMessageField;
     [SerializeField]
+    public TextMeshProUGUI PeriodMessageField;
+    [SerializeField]
     protected Toggle checkbox;
+
 
     private int _score = 0;
 
@@ -80,6 +83,11 @@ public class UI : MonoBehaviour
 
     public void PauseClick()                                    //changes the state to paused and back to playing if the check box is toggled
     {
+        if (Time.time < 5f)
+        {
+            return;
+        }
+
         if (Gstate.state == PlayState.GameOver)
         {
 
