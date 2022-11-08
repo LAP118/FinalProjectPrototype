@@ -66,7 +66,7 @@ public class Game_State : MonoBehaviour
     protected void state_gameOver()              //this is the function to tell the game to be in the Game over state
     {
         Debug.Log("Game Over");
-
+        
 
     }
 

@@ -7,7 +7,8 @@ public class Chest : MonoBehaviour
 
     [SerializeField]
     protected UI ui;
-
+    [SerializeField]
+    protected GameObject ChestPrefab;
 
 
 
@@ -26,6 +27,7 @@ public class Chest : MonoBehaviour
     {
         GetChestMessage();
         ui.score = ui.score + 1;
+        ChestPrefab.gameObject.SetActive(false);
     }
 
     private void GetChestMessage()

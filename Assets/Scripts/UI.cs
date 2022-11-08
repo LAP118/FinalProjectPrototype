@@ -22,6 +22,8 @@ public class UI : MonoBehaviour
     public TextMeshProUGUI PeriodMessageField;
     [SerializeField]
     protected Toggle checkbox;
+    [SerializeField]
+    protected Button BUton;
 
 
     private int _score = 0;
@@ -59,7 +61,7 @@ public class UI : MonoBehaviour
         if (Gstate.state == PlayState.GameOver)
         {
             GameOverMessageField.gameObject.SetActive(true);
-            GameOverScore();
+            GameOverTextUpdate();
         }
         if (Gstate.state == PlayState.Paused)
         {
@@ -81,7 +83,7 @@ public class UI : MonoBehaviour
 
         if (Gstate.state == PlayState.GameOver)
         {
-
+            
         }
         else
         {
@@ -99,9 +101,17 @@ public class UI : MonoBehaviour
         
     }
 
-    protected void GameOverScore()
+    protected void GameOverTextUpdate()
     {
         GameOverMessageField.text = "Game Over! You got " + score + " chest(s).";
+        if (Gstate.state == PlayState.GameOver)
+        {
+            StateMessageField.text = "It's Over";
+        }
     }
+
+    
+    
+
 
 }
