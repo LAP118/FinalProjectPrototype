@@ -37,7 +37,7 @@ public class UI : MonoBehaviour
     
     void Update()
     {
-        
+        HideTextIntro();
     }
 
 
@@ -110,7 +110,27 @@ public class UI : MonoBehaviour
         }
     }
 
-    
+    protected void HideTextIntro()
+    {
+        if (Time.time < 5f)
+        {
+            ScoreMessageField.gameObject.SetActive(false);
+            StateMessageField.gameObject.SetActive(false);
+            PeriodMessageField.gameObject.SetActive(false);
+            checkbox.gameObject.SetActive(false);
+            BUton.gameObject.SetActive(false);
+            
+        }
+        if (Time.time > 5f)
+        {
+            ScoreMessageField.gameObject.SetActive(true);
+            StateMessageField.gameObject.SetActive(true);
+            PeriodMessageField.gameObject.SetActive(true);
+            checkbox.gameObject.SetActive(true);
+            BUton.gameObject.SetActive(true);
+
+        }
+    }
     
 
 
