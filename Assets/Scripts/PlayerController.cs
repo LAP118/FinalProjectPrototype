@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour       //this script I am not going
             float turn = mouseX * Time.deltaTime * mouseSpeed;
             float tilt = mouseY * Time.deltaTime * mouseSpeed * -1;
 
-            float y = -9.8f * Time.deltaTime;
+            float y = -15f * Time.deltaTime;                                    //the gravity is higher because the character was floating down instead of walking like a normal person
 
             float x = side * moveSpeed * Time.deltaTime;
             float z = forward * moveSpeed * Time.deltaTime;
