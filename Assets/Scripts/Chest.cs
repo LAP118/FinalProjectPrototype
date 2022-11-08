@@ -32,8 +32,8 @@ public class Chest : MonoBehaviour
 
     private void GetChestMessage()
     {
-        ui.ChestGetField.gameObject.SetActive(true);
-        ui.ChestGetField.text = "You got a chest!";
+        //ui.ChestGetField.gameObject.SetActive(true);
+        //ui.ChestGetField.text = "You got a chest!";
 
 
 
