@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour       //this script I am not going
     // Start is called before the first frame update
     protected void Start()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
+       Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
