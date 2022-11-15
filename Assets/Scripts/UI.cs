@@ -22,6 +22,8 @@ public class UI : MonoBehaviour
     [SerializeField]
     public TextMeshProUGUI PeriodMessageField;
     [SerializeField]
+    protected TextMeshProUGUI TimeMessageField;
+    [SerializeField]
     protected Toggle checkbox;
     [SerializeField]
     protected Button BUton;
@@ -29,6 +31,7 @@ public class UI : MonoBehaviour
 
     private int _score = 0;
 
+    private float timeywimey = 90f;
 
     void Start()
     {
@@ -36,13 +39,14 @@ public class UI : MonoBehaviour
     }
 
     
-    void Update()
+    void Update()                                                       //updates every frame
     {
         HideTextIntro();
+        Timerparent();
     }
 
-
-    public int score
+   
+    public int score                                                    //makes a public value for the private score value so that the private value isn't changed
     {
         get
         {
@@ -102,7 +106,7 @@ public class UI : MonoBehaviour
         
     }
 
-    protected void GameOverTextUpdate()
+    protected void GameOverTextUpdate()                     //shows the game over text when the state is in the game over state
     {
         GameOverMessageField.text = "Game Over! You got " + score + " chest(s).";
         if (Gstate.state == PlayState.GameOver)
@@ -111,7 +115,7 @@ public class UI : MonoBehaviour
         }
     }
 
-    protected void HideTextIntro()
+    protected void HideTextIntro()                          //Hides the the ui while the introtext is up
     {
         if (Time.time < 5f)
         {
@@ -120,6 +124,7 @@ public class UI : MonoBehaviour
             PeriodMessageField.gameObject.SetActive(false);
             checkbox.gameObject.SetActive(false);
             BUton.gameObject.SetActive(false);
+            TimeMessageField.gameObject.SetActive(false);
             
         }
         if (Time.time > 5f)
@@ -129,16 +134,17 @@ public class UI : MonoBehaviour
             PeriodMessageField.gameObject.SetActive(true);
             checkbox.gameObject.SetActive(true);
             BUton.gameObject.SetActive(true);
+            TimeMessageField.gameObject.SetActive(true);
 
         }
     }
 
-    public void Showmessagechest(float DElay)
+    public void Showmessagechest(float DElay)               //starts the chest coroutine
     {
         StartCoroutine(GetChestMessage(DElay));
     }
 
-    private IEnumerator GetChestMessage(float DElay)
+    private IEnumerator GetChestMessage(float DElay)            //CoRoutine for the chest message to dissear after 2 seconds
     {
         Debug.Log("Chest Message Shown");
 
@@ -157,5 +163,33 @@ public class UI : MonoBehaviour
 
         yield break;
     }
+
+    private void Timer()                                        //Timer for the game
+    {
+        if (Time.time == Time.time + 1)
+        {
+            TimeMessageField.text = (timeywimey).ToString("F1");
+            timeywimey = timeywimey - 1f;
+        }
+
+        if (timeywimey == 0)
+        {
+            Gstate.state = PlayState.GameOver;
+        }
+        
+
+
+
+    }
+
+    private void Timerparent()
+    {
+        if (Time.time > 5f)
+        {
+            Timer();
+        }
+    }
+
+
 
 }

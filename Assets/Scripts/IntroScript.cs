@@ -24,7 +24,7 @@ public class IntroScript : MonoBehaviour
         Ballmunch();
     }
 
-    protected void Ballmunch()
+    protected void Ballmunch()                                              //Hides the intro message after the intro period
     {
        if (Time.time > 5f)
        {

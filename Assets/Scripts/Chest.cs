@@ -23,7 +23,7 @@ public class Chest : MonoBehaviour
         
     }
 
-    public void OnTriggerEnter(Collider entered)
+    public void OnTriggerEnter(Collider entered)                        //When the chest trigger is entered it adds to the score and starts the coroutine
     {
         ui.Showmessagechest(messageDelay);
         ui.score = ui.score + 1;

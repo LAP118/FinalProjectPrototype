@@ -29,7 +29,7 @@ public class EndGame : MonoBehaviour
     }
 
 
-    public void OnTriggerEnter (Collider entered)
+    public void OnTriggerEnter (Collider entered)               //ends the game when the portal is entered
     {
         Gstate.state = PlayState.GameOver;
     }

@@ -29,17 +29,17 @@ public class Timeshift : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("1"))
+        if (Input.GetKeyDown("1"))                          //if 1 is pressed it goes to the past
         {
             PastPress();
         }
         
-        if (Input.GetKeyDown("2"))
+        if (Input.GetKeyDown("2"))                          //if 2 is pressed it goes to the present
         {
             PresentPress();
         }
         
-        if (Input.GetKeyDown("3"))
+        if (Input.GetKeyDown("3"))                          //if 3 is pressed it goes to the future
         {
             FuturePress();
         }
@@ -48,7 +48,7 @@ public class Timeshift : MonoBehaviour
     }
 
 
-    public void PastPress()
+    public void PastPress()                                 //doesn't work during the intro period but it enables the past and disables the present and future
     {
         if (Time.time < 5f)
         {
@@ -65,7 +65,7 @@ public class Timeshift : MonoBehaviour
        
     }
 
-    public void PresentPress()
+    public void PresentPress()                                 //doesn't work during the intro period but it enables the present and disables the past and future
     {
         if (Time.time < 5f)
         {
@@ -82,7 +82,7 @@ public class Timeshift : MonoBehaviour
 
     }
 
-    public void FuturePress()
+    public void FuturePress()                                 //doesn't work during the intro period but it enables the future and disables the present and past
     {
         if (Time.time < 5f)
         {

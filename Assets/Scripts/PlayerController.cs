@@ -18,11 +18,16 @@ public class PlayerController : MonoBehaviour       //this script I am not going
 
     private float Tiltreal = 0;
 
-    
+    private float FacingReal = 0;
+
+
     // Start is called before the first frame update
     protected void Start()
     {
-       Cursor.lockState = CursorLockMode.Locked;
+       
+        Cursor.lockState = CursorLockMode.Locked;
+
+        
     }
 
     // Update is called once per frame
@@ -31,13 +36,13 @@ public class PlayerController : MonoBehaviour       //this script I am not going
 
         FreezePlayer();
 
-
+        //if ()
 
 
 
     }
 
-    public void FreezePlayer()
+    public void FreezePlayer()                                                  //All the controls for the player character are under this function so that the player can't move during the intro period, the paused state, and the game over state
     {
         if (Gstate.state == PlayState.Playing)
         {
@@ -60,15 +65,19 @@ public class PlayerController : MonoBehaviour       //this script I am not going
                 return;
             }
 
-            Tiltreal += tilt;
+            Tiltreal = tilt;
 
             Tiltreal = Mathf.Clamp(Tiltreal, -80, 80);
 
-            cam.localEulerAngles += new Vector3(tilt, 0, 0);
+            FacingReal = turn;
+
+            
+
+            cam.localEulerAngles += new Vector3(Tiltreal, 0, 0);
 
             controller.Move(transform.TransformDirection(new Vector3(x, y, z)));
 
-            transform.eulerAngles += new Vector3(0, turn, 0);
+            transform.eulerAngles += new Vector3(0, FacingReal, 0);
         }
         
         if (Gstate.state == PlayState.Paused)

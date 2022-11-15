@@ -70,7 +70,7 @@ public class Game_State : MonoBehaviour
 
     }
 
-    public PlayState state                      //Makes a bulic value for the private thing so that the private thing isn't changed
+    public PlayState state                      //Makes a public value for the private thing so that the private thing isn't changed
     {
         get
         {
