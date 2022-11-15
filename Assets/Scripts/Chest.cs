@@ -9,7 +9,8 @@ public class Chest : MonoBehaviour
     protected UI ui;
     [SerializeField]
     protected GameObject ChestPrefab;
-
+    [SerializeField]
+    protected CoRoutines Coroute;
 
 
     void Start()
@@ -32,9 +33,9 @@ public class Chest : MonoBehaviour
 
     private void GetChestMessage()
     {
-        //ui.ChestGetField.gameObject.SetActive(true);
-        //ui.ChestGetField.text = "You got a chest!";
-
+        ui.ChestGetField.gameObject.SetActive(true);
+        ui.ChestGetField.text = "You got a chest!";
+        StartCoroutine(Coroute.doMove(Coroute.LerpTarget, Coroute.StartPoint.position, Coroute.EndPoint.position, Coroute.Duration, Coroute.StartDelay));
 
 
 
