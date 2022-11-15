@@ -51,7 +51,7 @@ public class Game_State : MonoBehaviour
 
     protected void state_playing()              //this is the function to tell the game to be in the playing state
     {
-        Debug.Log("Playing");
+        //Debug.Log("Playing");
        
 
        
@@ -59,13 +59,13 @@ public class Game_State : MonoBehaviour
 
     protected void state_paused()              //this is the function to tell the game to be in the paused state
     {
-        Debug.Log("Paused");
+        //Debug.Log("Paused");
         
     }
 
     protected void state_gameOver()              //this is the function to tell the game to be in the Game over state
     {
-        Debug.Log("Game Over");
+        //Debug.Log("Game Over");
         
 
     }

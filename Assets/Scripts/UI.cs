@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+
 public class UI : MonoBehaviour
 {
     [SerializeField]
@@ -131,7 +132,30 @@ public class UI : MonoBehaviour
 
         }
     }
-    
 
+    public void Showmessagechest(float DElay)
+    {
+        StartCoroutine(GetChestMessage(DElay));
+    }
+
+    private IEnumerator GetChestMessage(float DElay)
+    {
+        Debug.Log("Chest Message Shown");
+
+        ChestGetField.gameObject.SetActive(true);
+
+        Debug.Log("messageDelay = " + DElay.ToString("F1"));
+
+        ChestGetField.text = "You got a chest!";
+
+        yield return new WaitForSeconds(DElay);
+
+        ChestGetField.gameObject.SetActive(false);
+
+        Debug.Log("Chest Message Hidden");
+
+
+        yield break;
+    }
 
 }
