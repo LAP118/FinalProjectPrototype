@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour       //this script I am not going to comment because nothing in this script is used the script itself is diabled
+public class PlayerController : MonoBehaviour       
 {
     [SerializeField]
     protected float mouseSpeed;
