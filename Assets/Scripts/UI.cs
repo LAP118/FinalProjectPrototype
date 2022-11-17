@@ -27,22 +27,22 @@ public class UI : MonoBehaviour
     protected Toggle checkbox;
     [SerializeField]
     protected Button BUton;
-
+    [SerializeField]
+    private float timeywimey = 90f;
 
     private int _score = 0;
-
-    private float timeywimey = 90f;
+    
 
     void Start()
     {
-        
+        Timerparent();
     }
 
     
     void Update()                                                       //updates every frame
     {
         HideTextIntro();
-        Timerparent();
+        
     }
 
    
@@ -85,25 +85,40 @@ public class UI : MonoBehaviour
         {
             return;
         }
+        Debug.Log("Gstate.state = " + Gstate.state.ToString());
+        //if (Gstate.state == PlayState.GameOver)
+        //{
 
-        if (Gstate.state == PlayState.GameOver)
+        //}
+        //else
+        //{
+        //    if (checkbox.isOn)
+        //    {
+        //        StateMessageField.text = "It's Playing";
+        //        Gstate.state = PlayState.Playing;
+        //    }
+        //    else
+        //    {
+        //        StateMessageField.text = "It's Paused";
+        //        Gstate.state = PlayState.Paused;
+        //    }
+        //}
+
+        if (Gstate.state == PlayState.Playing)
         {
-            
+            Debug.Log("Pausing");
+            Gstate.state = PlayState.Paused;
+            StateMessageField.text = "It's Paused";
         }
-        else
+
+        else if (Gstate.state == PlayState.Paused)
         {
-            if (checkbox.isOn)
-            {
-               StateMessageField.text = "It's Playing";
-               Gstate.state = PlayState.Playing;
-            }
-            else
-            {
-               StateMessageField.text = "It's Paused";
-               Gstate.state = PlayState.Paused;
-            }
+            Debug.Log("Unpausing");
+            Gstate.state = PlayState.Playing;
+            StateMessageField.text = "It's Playing";
         }
-        
+
+
     }
 
     protected void GameOverTextUpdate()                     //shows the game over text when the state is in the game over state
@@ -132,7 +147,7 @@ public class UI : MonoBehaviour
             ScoreMessageField.gameObject.SetActive(true);
             StateMessageField.gameObject.SetActive(true);
             PeriodMessageField.gameObject.SetActive(true);
-            checkbox.gameObject.SetActive(true);
+            //checkbox.gameObject.SetActive(true);
             BUton.gameObject.SetActive(true);
             TimeMessageField.gameObject.SetActive(true);
 
@@ -164,30 +179,47 @@ public class UI : MonoBehaviour
         yield break;
     }
 
-    private void Timer()                                        //Timer for the game
+    private IEnumerator Timer()                                        //Timer for the game
     {
-        if (Time.time == Time.time + 1)
+        //if (Time.time == Time.deltaTime - 1)
+        //{
+        //    TimeMessageField.text = (timeywimey).ToString("F1");
+        //    timeywimey = timeywimey - 1f;
+        //}
+
+        //if (timeywimey == 0)
+        //{
+        //    Gstate.state = PlayState.GameOver;
+        //}
+
+        while (Time.time < 5f)
+        {
+            yield return null;
+        }
+
+
+        while (timeywimey >= 0)
         {
             TimeMessageField.text = (timeywimey).ToString("F1");
-            timeywimey = timeywimey - 1f;
+            if (Gstate.state == PlayState.Playing)
+            {
+                timeywimey = timeywimey - Time.deltaTime;
+
+            }
+            Debug.Log(timeywimey);
+            yield return null;
         }
 
-        if (timeywimey == 0)
-        {
-            Gstate.state = PlayState.GameOver;
-        }
-        
-
-
+        Gstate.state = PlayState.GameOver;
 
     }
 
     private void Timerparent()
     {
-        if (Time.time > 5f)
-        {
-            Timer();
-        }
+       
+        
+       StartCoroutine(Timer());
+        
     }
 
 

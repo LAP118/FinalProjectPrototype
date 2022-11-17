@@ -20,13 +20,15 @@ public class PlayerController : MonoBehaviour
 
     private float FacingReal = 0;
 
+    private bool Mouselook; 
+
 
     // Start is called before the first frame update
     protected void Start()
     {
        
         Cursor.lockState = CursorLockMode.Locked;
-
+        Mouselook = true;
         
     }
 
@@ -36,9 +38,21 @@ public class PlayerController : MonoBehaviour
 
         FreezePlayer();
 
-        //if ()
-
-
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (Mouselook)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Mouselook = false;
+                //Mouselook = !Mouselook;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Mouselook = true;
+            }
+        
+        }
 
     }
 
