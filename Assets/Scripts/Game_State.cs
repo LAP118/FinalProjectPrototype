@@ -46,7 +46,7 @@ public class Game_State : MonoBehaviour
                 break;
 
         }
-        ui.Updatetext();
+        ui.Updatetext();                        //calls the Updatetext function from ui
     }
 
     protected void state_playing()              //this is the function to tell the game to be in the playing state
